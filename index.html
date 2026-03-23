@@ -1,2 +1,225 @@
-<h1>Welcome to Miski</h1>
-<p>The sweet spot for restaurant margins.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MISKI — Coming Soon</title>
+  <meta name="description" content="Technology, refined for food businesses. Something sweet is coming to the hospitality industry." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: #f5ede0;
+    }
+
+    /* ── Blob layer ─────────────────────────────────────────── */
+
+    .blobs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+
+    /* Blob 1 — large honey amber, top-left */
+    .blob-1 {
+      width: 60vmax;
+      height: 60vmax;
+      top: -20vmax;
+      left: -15vmax;
+      background: radial-gradient(circle, rgba(255,179,71,0.75) 0%, rgba(255,179,71,0) 70%);
+      animation-name: drift-1;
+      animation-duration: 28s;
+      animation-delay: 0s;
+    }
+
+    /* Blob 2 — medium sage green, bottom-right */
+    .blob-2 {
+      width: 50vmax;
+      height: 50vmax;
+      bottom: -15vmax;
+      right: -10vmax;
+      background: radial-gradient(circle, rgba(143,188,143,0.70) 0%, rgba(143,188,143,0) 70%);
+      animation-name: drift-2;
+      animation-duration: 34s;
+      animation-delay: -8s;
+    }
+
+    /* Blob 3 — soft cream, center-right */
+    .blob-3 {
+      width: 45vmax;
+      height: 45vmax;
+      top: 15vmax;
+      right: -5vmax;
+      background: radial-gradient(circle, rgba(255,248,231,0.80) 0%, rgba(255,248,231,0) 70%);
+      animation-name: drift-3;
+      animation-duration: 24s;
+      animation-delay: -14s;
+    }
+
+    /* Blob 4 — secondary amber, bottom-left */
+    .blob-4 {
+      width: 40vmax;
+      height: 40vmax;
+      bottom: -5vmax;
+      left: 10vmax;
+      background: radial-gradient(circle, rgba(255,179,71,0.55) 0%, rgba(255,179,71,0) 70%);
+      animation-name: drift-4;
+      animation-duration: 30s;
+      animation-delay: -20s;
+    }
+
+    @keyframes drift-1 {
+      0%   { transform: translate(0, 0) scale(1);      opacity: 0.4; }
+      50%  { transform: translate(8vw, 6vh) scale(1.08); opacity: 0.65; }
+      100% { transform: translate(3vw, 12vh) scale(0.95); opacity: 0.5; }
+    }
+
+    @keyframes drift-2 {
+      0%   { transform: translate(0, 0) scale(1);       opacity: 0.45; }
+      50%  { transform: translate(-6vw, -8vh) scale(1.1); opacity: 0.7; }
+      100% { transform: translate(-10vw, -3vh) scale(0.92); opacity: 0.5; }
+    }
+
+    @keyframes drift-3 {
+      0%   { transform: translate(0, 0) scale(1);      opacity: 0.5; }
+      50%  { transform: translate(-5vw, 7vh) scale(1.06); opacity: 0.7; }
+      100% { transform: translate(2vw, 10vh) scale(1.02); opacity: 0.55; }
+    }
+
+    @keyframes drift-4 {
+      0%   { transform: translate(0, 0) scale(1);       opacity: 0.4; }
+      50%  { transform: translate(7vw, -5vh) scale(1.12); opacity: 0.65; }
+      100% { transform: translate(4vw, -9vh) scale(0.96); opacity: 0.48; }
+    }
+
+    /* ── Frosted glass pane ─────────────────────────────────── */
+
+    .glass {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+
+    /* ── Content layer ──────────────────────────────────────── */
+
+    .page {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100dvh;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #2D2D2D;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .tagline {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #2D2D2D;
+      max-width: 450px;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+
+    /* ── Contact link ───────────────────────────────────────── */
+
+    .contact {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #2D2D2D;
+      text-decoration: none;
+      opacity: 0.7;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact:hover {
+      opacity: 1;
+      border-bottom-color: #2D2D2D;
+    }
+
+    /* ── Mobile safeguard ───────────────────────────────────── */
+
+    @media (max-width: 480px) {
+      .contact {
+        position: static;
+        margin-top: 3rem;
+        align-self: center;
+      }
+
+      .page {
+        justify-content: center;
+        gap: 0;
+        padding-bottom: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated blob background -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+
+  <!-- Frosted glass overlay -->
+  <div class="glass" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <main class="page">
+    <h1 class="brand">MISKI</h1>
+    <p class="tagline">
+      Technology, refined for food businesses.<br>
+      Something sweet is coming to the hospitality industry.
+    </p>
+    <a class="contact" href="mailto:nicolas@miski.io">nicolas@miski.io</a>
+  </main>
+
+</body>
+</html>
